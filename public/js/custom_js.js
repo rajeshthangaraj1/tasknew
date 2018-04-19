@@ -10,6 +10,8 @@ $(document).ready(function() {
     $('header').removeClass('sticky');    
 
     }
+    
+    
 });
 
 $(window).scroll(function () {		

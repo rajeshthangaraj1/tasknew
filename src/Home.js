@@ -32,12 +32,7 @@ class Home extends React.Component {
    }
 
 	 componentWillMount() {
-		
-		
-		
-		
-			
-			
+						
 	 }
 	  componentDidMount() {
 		
@@ -80,12 +75,12 @@ class Home extends React.Component {
       </div>
       <div className="navigation collapse navbar-collapse navbar-ex1-collapse">
         <ul className="nav navbar-nav">
-          <li className="current"><a onClick={this.check.bind(this)} data-id="intro" >Home</a></li>
-          <li><a onClick={this.check.bind(this)} data-id="about" >About</a></li>
-          <li><a onClick={this.check.bind(this)} data-id="services"   >Service</a></li>
-          <li><a onClick={this.check.bind(this)} data-id="portfolio"  >Works</a></li>
-          <li><a onClick={this.check.bind(this)} data-id="team" >Team</a></li>
-          <li><a onClick={this.check.bind(this)} data-id="contact"  >Contact</a></li>
+          <li className="current"><a className="menu-list-click" data-id="intro" >Home</a></li>
+          <li><a  className="menu-list-click" data-id="about" >About</a></li>
+          <li><a  className="menu-list-click" data-id="services"   >Service</a></li>
+          <li><a  className="menu-list-click" data-id="portfolio"  >Works</a></li>
+          <li><a  className="menu-list-click" data-id="team" >Team</a></li>
+          <li><a  className="menu-list-click" data-id="contact"  >Contact</a></li>
         </ul>
       </div>
     </div>

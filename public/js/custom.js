@@ -137,7 +137,16 @@
   }
 
   $(document).ready(function() {
-
+    /* custom scroll */
+    $(".menu-list-click").click(function() {
+				
+	var id=$(this).attr("data-id");
+    $('html, body').animate({
+        scrollTop: $("#"+id).offset().top
+    }, 1000);
+    $('.navbar-toggle').click();
+    });
+    
     var browserWidth = $(window).width();
 
     if (browserWidth > 560) {
