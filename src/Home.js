@@ -1,13 +1,15 @@
 /* global $, angular, React */
 import React from 'react';
+import axios from 'axios';
 import DocumentMeta from 'react-document-meta';
-import Scroll from 'react-scroll-to-element';
 /*import cookie from 'react-cookie';*/
 import './App.css';
 
 const lang = require('./lang');
-
-
+const config = require('./config');
+const APIURL = config.path.apiUrl;
+const APIBASE = config.path.apiBaseUrl;
+ 
  /* Load meta tags */
   const meta = {
       title: lang.home_meta_title,
@@ -26,32 +28,223 @@ class Home extends React.Component {
  
        super(props);
 	   /* Declare state */
-	   this.state = { categorylist: [],categoryclass:''};
-	 
+	   this.state = { ourteam: [],works: [],services: [] , cms : [] ,settings : [] ,clients : [] };
 	   
-   }
+	   
+     }
 
-	 componentWillMount() {
+	 componentWillMount(){
+		 this.ourteam_api();
+		 this.works_api();
+		 this.services_api();
+		 this.cms_api();
+		 this.settings_api();
+		 this.clients_api();
+			
 						
 	 }
-	  componentDidMount() {
+	 componentDidMount() {
 		
-	  }
-	  
-	  
- check(e){
-    
-    var elmnt = e.currentTarget.dataset.id;
-    var elmnts = document.getElementById(elmnt);
-    elmnts.scrollIntoView(true);
-   
+	 }
+	 /* cms api and function */
+  clients_api()
+ {
+	 axios.get(APIURL+'cms/clients/')
+		 .then(res => {
+			 if(res.data.status === "ok"){			 
+				  this.setState({clients: res.data.result_set.clients});
+			 }
+			 
+	  	});
+ }
+  /* our team api and function */
+  __clients_listing(){	
+			
+			if(this.state.clients){ 
+			return this.state.clients.map((loaddata, index)=>
+			
+	        <li  className="wow fadeInDown" data-wow-delay="0.3s"><a href={loaddata.clients_link} target="_blank" ><img src={APIBASE+'media/clients/'+loaddata.clients_image} alt="" key={loaddata.clients_id} /></a></li>
+           
+			);
+		}
+  }  
+  
+  /* cms api and function */
+  settings_api()
+ {
+	 axios.get(APIURL+'setting/settings/')
+		 .then(res => {
+			 if(res.data.status === "ok"){			 
+				  this.setState({settings: res.data.result_set.settings});
+			 }
+			 
+	  	});
  }
 
- 
-
-
- 
+ /* cms api and function */
+  cms_api()
+ {
+	 axios.get(APIURL+'cms/cmspages/?cms_slug=about-us')
+		 .then(res => {
+			 if(res.data.status === "ok"){			 
+				  this.setState({cms: res.data.result_set.cms});
+			 }
+			 
+	  	});
+ }
+  /* our team api and function */
+  __cms_listing(){	
+			
+			if(this.state.cms){ 
+			return this.state.cms.map((loaddata, index)=>
+	   <div className="row" key={loaddata.cms_id}>
+        <div className="col-md-offset-2 col-md-8">
+          <div className="section-heading">
+            <h2>About us</h2>
+            <div className="heading-line"></div>
+            <p>{loaddata.cms_text}</p>
+          </div>
+        </div>
+      </div>
+      
+	    
+			);
+		}
+  }
+   /* our team api and function */
+  __cms_listing1(){	
+			
+			if(this.state.cms){ 
+			return this.state.cms.map((loaddata, index)=>
+	  <div className="col-md-6 about-img" key={loaddata.cms_id}>
+          <img src={APIBASE+'media/cms/'+loaddata.cms_image} alt=""/>
+        </div>
+      
+	    
+			);
+		}
+  }
+   /* our team api and function */
+  __cms_listing2(){	
+			
+			if(this.state.cms){ 
+			return this.state.cms.map((loaddata, index)=>
+	    <div className="col-md-6 content" key={loaddata.cms_id}>
+          <h2>{loaddata.cms_text1}</h2>
+          <h3>{loaddata.cms_text2}</h3>
+          <p>{loaddata.cms_description}</p>
+        </div>
+      
+	    
+			);
+		}
+  }
   
+  /* our team api and function */
+  ourteam_api()
+ {
+	 axios.get(APIURL+'cms/our_team/')
+		 .then(res => {
+			 if(res.data.status === "ok"){			 
+				  this.setState({ourteam: res.data.result_set.ourteam});
+			 }
+			 
+	  	});
+ }
+ 
+
+  /* our team api and function */
+  __ourteam_listing(){	
+			
+			if(this.state.ourteam){ 
+			return this.state.ourteam.map((loaddata, index)=>
+			
+	    <div className="col-xs-12 col-sm-3 col-md-3 col-lg-3" key={loaddata.ourteam_id}>
+          <div className="box-team wow bounceInUp" data-wow-delay="0.1s" >
+            <img src={APIBASE+'media/our_team/'+loaddata.ourteam_image} alt="" className="img-circle img-responsive" />
+            <h4>{loaddata.ourteam_name}</h4>
+            <p >{loaddata.ourteam_profession}</p>
+          </div>
+        </div>
+			);
+		}
+}
+
+  /* our work api and function */
+  works_api()
+ {
+	 axios.get(APIURL+'cms/works/')
+		 .then(res => {
+			 if(res.data.status === "ok"){			 
+				  this.setState({works: res.data.result_set.works});
+			 }
+			 
+	  	});
+ }
+  /* our team api and function */
+  __works_listing(){	
+			
+			if(this.state.works){ 
+			return this.state.works.map((loaddata, index)=>
+			
+	     <li key={loaddata.works_id}>
+              <a href={loaddata.works_link} target="_blank" data-largesrc={APIBASE+'media/works_images/'+loaddata.works_image} data-title={loaddata.works_name} >
+								<img src={APIBASE+'media/works_images/'+loaddata.works_image} alt={loaddata.works_name}/>
+			  </a>
+            </li>
+			);
+		}
+  }
+ 
+ /* our services api and function */
+  services_api()
+ {
+	 axios.get(APIURL+'cms/services/')
+		 .then(res => {
+			 if(res.data.status === "ok"){			 
+				  this.setState({services: res.data.result_set.services});
+			 }
+			 
+	  	});
+ }
+  /* our services api and function */
+  __services_listing(){	
+			
+			if(this.state.services){
+			return this.state.services.map((loaddata, index)=>
+		
+	     <div key={loaddata.services_id} className={"item" + " " + " " + (index === 0 ? "active" : " " )} >
+                <div className="row">
+                  <div className="col-sm-12 col-md-offset-1 col-md-6">
+                    <div className="wow bounceInLeft">
+                      <h4>{loaddata.services_name}</h4>
+                        {loaddata.services_desc}
+                    </div>
+                  </div>
+                  <div className="col-sm-12 col-md-5">
+                    <div className="screenshot wow bounceInRight">
+                      <img src={APIBASE+'media/services/'+loaddata.services_image} className="img-responsive" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+			);
+		}
+} 
+/* our services api and function */
+  __services_listing_paging(){	
+			
+			if(this.state.services){
+			
+			return this.state.services.map((loaddata, index)=>
+		          
+	        <li key={loaddata.services_id} data-target="#carousel-service" data-slide-to={index} className={index === 0 ? "active" : " "}></li>
+	        
+			
+			
+			);
+		}
+}
 
   render() {
    
@@ -92,9 +285,9 @@ class Home extends React.Component {
       <div className="container">
         <div className="col-md-12">
           <div id="rotator">
-            <h1><span className="1strotate">ECCS web studio, Design for life, Creativity and technology</span></h1>
+            <h1><span className="1strotate">{this.state.settings.settings_banner_content1}</span></h1>
             <div className="line-spacer"></div>
-            <p><span className="2ndrotate">Web Design, Brand Identity, Promotion</span></p>
+            <p><span className="2ndrotate">{this.state.settings.settings_banner_content2}</span></p>
           </div>
         </div>
       </div>
@@ -104,27 +297,12 @@ class Home extends React.Component {
   
   <section id="about" className="home-section bg-white">
     <div className="container">
-      <div className="row">
-        <div className="col-md-offset-2 col-md-8">
-          <div className="section-heading">
-            <h2>About us</h2>
-            <div className="heading-line"></div>
-            <p>We’ve been building unique digital products, platforms, and experiences for the past 6 years.</p>
-          </div>
-        </div>
-      </div>
+       {this.__cms_listing()}
       <div className="row wow fadeInUp">
-        <div className="col-md-6 about-img">
-          <img src="img/about-img.jpg" alt=""/>
-        </div>
+     
+       {this.__cms_listing1()}
 
-        <div className="col-md-6 content">
-          <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elite storium paralate</h2>
-          <h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
-          <p>
-            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Libero justo laoreet sit amet cursus sit amet dictum sit. Commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-          </p>
-        </div>
+       {this.__cms_listing2()}
       </div>
     </div>
   </section>
@@ -161,58 +339,15 @@ class Home extends React.Component {
 
           
             <div className="carousel-inner">
-              <div className="item active">
-                <div className="row">
-                  <div className="col-sm-12 col-md-offset-1 col-md-6">
-                    <div className="wow bounceInLeft">
-                      <h4>Website Design</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-                    </div>
-                  </div>
-                  <div className="col-sm-12 col-md-5">
-                    <div className="screenshot wow bounceInRight">
-                      <img src="img/screenshots/1.png" className="img-responsive" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="item">
-                <div className="row">
-                  <div className="col-sm-12 col-md-offset-1 col-md-6">
-                    <div className="wow bounceInLeft">
-                      <h4>Brand Identity</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-                    </div>
-                  </div>
-                  <div className="col-sm-12 col-md-5">
-                    <div className="screenshot wow bounceInRight">
-                      <img src="img/screenshots/2.png" className="img-responsive" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="item">
-                <div className="row">
-                  <div className="col-sm-12 col-md-offset-1 col-md-6">
-                    <div className="wow bounceInLeft">
-                      <h4>Web & Mobile Apps</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-                    </div>
-                  </div>
-                  <div className="col-sm-12 col-md-5">
-                    <div className="screenshot wow bounceInRight">
-                      <img src="img/screenshots/3.png" className="img-responsive" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
+               {this.__services_listing()}
+               
             </div>
 
             
             <ol className="carousel-indicators">
-              <li data-target="#carousel-service" data-slide-to="0" className="active"></li>
-              <li data-target="#carousel-service" data-slide-to="1"></li>
-              <li data-target="#carousel-service" data-slide-to="2"></li>
+            {this.__services_listing_paging()}
+           
             </ol>
           </div>
         </div>
@@ -228,7 +363,7 @@ class Home extends React.Component {
           <div className="section-heading">
             <h2>Works</h2>
             <div className="heading-line"></div>
-            <p>We’ve been building unique digital products, platforms, and experiences for the past 6 years.</p>
+            <p>We’ve been building unique digital products, platforms, and experiences for the past 2 years.</p>
           </div>
         </div>
       </div>
@@ -236,66 +371,7 @@ class Home extends React.Component {
         <div className="col-lg-12">
 
           <ul id="og-grid" className="og-grid">
-            <li>
-              <a href="#" data-largesrc="img/works/1.jpg" data-title="Portfolio title" data-description="Duo te dico volutpat, unum elit oblique per id. Ne duo mollis sapientem intellegebat. Per at augue vidisse percipit, pri vocibus assueverit interesset ut, no dolore luptatum incorrupte nec. In mentitum forensibus nec, nibh eripuit ut pri, tale illud voluptatum ut sea. Sed oratio repudiare ei, cum an magna labitur, eu atqui augue mei. Pri consul detracto eu, solet nusquam accusam ex vim, an movet interesset necessitatibus mea.">
-								<img src="img/works/thumbs/1.jpg" alt=""/>
-							</a>
-            </li>
-            <li>
-              <a href="#" data-largesrc="img/works/2.jpg" data-title="Portfolio title" data-description="Mea an eros periculis dignissim, quo mollis nostrum elaboraret et. Id quem perfecto mel, no etiam perfecto qui. No nisl legere recusabo nam, ius an tale pericula evertitur, dicat phaedrum qui in. Usu numquam legendos in, voluptaria sadipscing ut vel. Eu eum mandamus volutpat gubergren, eos ad detracto nominati, ne eum idque elitr aliquam.">
-								<img src="img/works/thumbs/2.jpg" alt=""/>
-							</a>
-            </li>
-            <li>
-              <a href="#" data-largesrc="img/works/3.jpg" data-title="Portfolio title" data-description="Vim ad persecuti appellantur. Eam ignota deterruisset eu, in omnis fierent convenire sed. Ne nulla veritus vel, liber euripidis in eos. Postea comprehensam vis in, detracto deseruisse mei ea. Ex sadipscing deterruisset concludaturque quo.">
-								<img src="img/works/thumbs/3.jpg" alt="img01"/>
-							</a>
-            </li>
-            <li>
-              <a href="#" data-largesrc="img/works/4.jpg" data-title="Portfolio title" data-description="In mentitum forensibus nec, nibh eripuit ut pri, tale illud voluptatum ut sea. Sed oratio repudiare ei, cum an magna labitur, eu atqui augue mei. Pri consul detracto eu, solet nusquam accusam ex vim, an movet interesset necessitatibus mea.">
-								<img src="img/works/thumbs/4.jpg" alt="img01"/>
-							</a>
-            </li>
-            <li>
-              <a href="#" data-largesrc="img/works/5.jpg" data-title="Portfolio title" data-description="Duo te dico volutpat, unum elit oblique per id. Ne duo mollis sapientem intellegebat. Per at augue vidisse percipit, pri vocibus assueverit interesset ut, no dolore luptatum incorrupte nec. In mentitum forensibus nec, nibh eripuit ut pri, tale illud voluptatum ut sea">
-								<img src="img/works/thumbs/5.jpg" alt="img01"/>
-							</a>
-            </li>
-            <li>
-              <a href="#" data-largesrc="img/works/6.jpg" data-title="Portfolio title" data-description="Id elit saepe pro. In atomorum constituam definitionem quo, at torquatos sadipscing eum, ut eum wisi meis mentitum. Probo feugiat ea duo. An usu platonem instructior, qui dolores inciderint ad. Te elit essent mea, vim ne atqui legimus invenire, ad dolor vitae sea.">
-								<img src="img/works/thumbs/6.jpg" alt="img01"/>
-							</a>
-            </li>
-            <li>
-              <a href="#" data-largesrc="img/works/7.jpg" data-title="Portfolio title" data-description="Duo te dico volutpat, unum elit oblique per id. Ne duo mollis sapientem intellegebat. Per at augue vidisse percipit, pri vocibus assueverit interesset ut, no dolore luptatum incorrupte nec. In mentitum forensibus nec, nibh eripuit ut pri, tale illud voluptatum ut sea. Sed oratio repudiare ei, cum an magna labitur, eu atqui augue mei.">
-								<img src="img/works/thumbs/7.jpg" alt="img01"/>
-							</a>
-            </li>
-            <li>
-              <a href="#" data-largesrc="img/works/8.jpg" data-title="Portfolio title" data-description="No nisl legere recusabo nam, ius an tale pericula evertitur, dicat phaedrum qui in. Usu numquam legendos in, voluptaria sadipscing ut vel. Eu eum mandamus volutpat gubergren, eos ad detracto nominati, ne eum idque elitr aliquam.">
-								<img src="img/works/thumbs/8.jpg" alt="img01"/>
-							</a>
-            </li>
-            <li>
-              <a href="#" data-largesrc="img/works/9.jpg" data-title="Portfolio title" data-description="Lorem ipsum dolor sit amet, ex pri quod ferri fastidii. Mazim philosophia eum ad, facilisis laboramus te est. Eam magna fabellas ut. Ne vis diceret accumsan salutandi, pro in impedit accusamus dissentias, ut nonumy eloquentiam ius.">
-								<img src="img/works/thumbs/9.jpg" alt="img01"/>
-							</a>
-            </li>
-            <li>
-              <a href="#" data-largesrc="img/works/10.jpg" data-title="Portfolio title" data-description="Duo te dico volutpat, unum elit oblique per id. Ne duo mollis sapientem intellegebat. Per at augue vidisse percipit, pri vocibus assueverit interesset ut, no dolore luptatum incorrupte nec. In mentitum forensibus nec, nibh eripuit ut pri, tale illud voluptatum ut sea. Sed oratio repudiare ei, cum an magna labitur, eu atqui augue mei. Pri consul detracto eu, solet nusquam accusam ex vim.">
-								<img src="img/works/thumbs/10.jpg" alt="img01"/>
-							</a>
-            </li>
-            <li>
-              <a href="#" data-largesrc="img/works/11.jpg" data-title="Portfolio title" data-description="Vim ad persecuti appellantur. Eam ignota deterruisset eu, in omnis fierent convenire sed. Ne nulla veritus vel, liber euripidis in eos. Postea comprehensam vis in, detracto deseruisse mei ea. Ex sadipscing deterruisset concludaturque quo.">
-								<img src="img/works/thumbs/11.jpg" alt="img01"/>
-							</a>
-            </li>
-            <li>
-              <a href="#" data-largesrc="img/works/12.jpg" data-title="Portfolio title" data-description="Mea an eros periculis dignissim, quo mollis nostrum elaboraret et. Id quem perfecto mel, no etiam perfecto qui. No nisl legere recusabo nam, ius an tale pericula evertitur, dicat phaedrum qui in. Usu numquam legendos in, voluptaria sadipscing ut vel. Eu eum mandamus volutpat gubergren, eos ad detracto nominati, ne eum idque elitr aliquam.">
-								<img src="img/works/thumbs/12.jpg" alt="img01"/>
-							</a>
-            </li>
+            {this.__works_listing()}
           </ul>
 
         </div>
@@ -309,10 +385,9 @@ class Home extends React.Component {
       <div className="row">
         <div className="col-md-12">
           <ul className="clients">
-            <li className="wow fadeInDown" data-wow-delay="0.3s"><a href="#"><img src="img/clients/1.png" alt="" /></a></li>
-            <li className="wow fadeInDown" data-wow-delay="0.6s"><a href="#"><img src="img/clients/2.png" alt="" /></a></li>
-            <li className="wow fadeInDown" data-wow-delay="0.9s"><a href="#"><img src="img/clients/3.png" alt="" /></a></li>
-            <li className="wow fadeInDown" data-wow-delay="1.1s"><a href="#"><img src="img/clients/4.png" alt="" /></a></li>
+         
+			 {this.__clients_listing()}
+            
           </ul>
         </div>
       </div>
@@ -332,34 +407,11 @@ class Home extends React.Component {
         </div>
       </div>
       <div className="row">
-        <div className="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-          <div className="box-team wow bounceInUp" data-wow-delay="0.1s">
-            <img src="img/team/1.jpg" alt="" className="img-circle img-responsive" />
-            <h4>Dominique Vroslav</h4>
-            <p>Art Director</p>
-          </div>
-        </div>
-        <div className="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.3s">
-          <div className="box-team wow bounceInUp">
-            <img src="img/team/2.jpg" alt="" className="img-circle img-responsive" />
-            <h4>Thomas Jeffersonn</h4>
-            <p>Web Designer</p>
-          </div>
-        </div>
-        <div className="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.5s">
-          <div className="box-team wow bounceInUp">
-            <img src="img/team/3.jpg" alt="" className="img-circle img-responsive" />
-            <h4>Nola Maurin</h4>
-            <p>Illustrator</p>
-          </div>
-        </div>
-        <div className="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.7s">
-          <div className="box-team wow bounceInUp">
-            <img src="img/team/4.jpg" alt="" className="img-circle img-responsive" />
-            <h4>Mira Ladovic</h4>
-            <p>Typographer</p>
-          </div>
-        </div>
+        
+       
+        {this.__ourteam_listing()}
+        
+       
       </div>
     </div>
   </section>
@@ -431,7 +483,10 @@ class Home extends React.Component {
             <i className="fa fa-map-marker fa-4x"></i>
             <h5>Main Office</h5>
             <p>
-              109 Borough High Street,<br />London SE1 1NL
+              PO.Box: 112311, Mezzanine Floor,<br />
+Office No: M2, Bld No: C251,<br />
+Musaffah, ME 12,<br />
+Abu Dhabi, UAE.
             </p>
           </div>
         </div>
@@ -440,7 +495,7 @@ class Home extends React.Component {
             <i className="fa fa-phone fa-4x"></i>
             <h5>Call</h5>
             <p>
-              +1 111 9998 7774<br></br> +1 245 4544 6855
+              +971 2 444 4729<br></br> +971 52 144 4482
 
             </p>
           </div>
@@ -450,7 +505,7 @@ class Home extends React.Component {
             <i className="fa fa-envelope fa-4x"></i>
             <h5>Email us</h5>
             <p>
-              hello@alstarstudio.com<br />sales@alstarstudio.com
+              eccsae@gmail.com
             </p>
           </div>
         </div>
@@ -459,30 +514,32 @@ class Home extends React.Component {
         <div className="col-md-12">
           <h5>We're on social networks</h5>
           <ul className="social-network">
-            <li><a href="#">
+           
+           <li><a target="_blank" href={this.state.settings.settings_fb_url}>
 						<span className="fa-stack fa-2x">
 							<i className="fa fa-circle fa-stack-2x"></i>
 							<i className="fa fa-facebook fa-stack-1x fa-inverse"></i>
 						</span></a>
             </li>
-            <li><a href="#">
+            <li><a target="_blank" href={this.state.settings.settings_insta_url}>
 						<span className="fa-stack fa-2x">
 							<i className="fa fa-circle fa-stack-2x"></i>
-							<i className="fa fa-dribbble fa-stack-1x fa-inverse"></i>
+							<i className="fa fa-instagram fa-stack-1x fa-inverse"></i>
 						</span></a>
             </li>
-            <li><a href="#">
+            <li><a target="_blank" href={this.state.settings.settings_twt_url}>
 						<span className="fa-stack fa-2x">
 							<i className="fa fa-circle fa-stack-2x"></i>
 							<i className="fa fa-twitter fa-stack-1x fa-inverse"></i>
 						</span></a>
             </li>
-            <li><a href="#">
+            <li><a target="_blank" href={this.state.settings.settings_pin_url}>
 						<span className="fa-stack fa-2x">
 							<i className="fa fa-circle fa-stack-2x"></i>
 							<i className="fa fa-pinterest fa-stack-1x fa-inverse"></i>
 						</span></a>
             </li>
+           
           </ul>
         </div>
       </div>

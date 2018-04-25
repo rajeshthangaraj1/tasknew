@@ -11,37 +11,6 @@ module.exports = {
         contact: 'Contact Us'
     },
 	
-	
-/* Availability and images lables */
-delivery : "Delivery",
-deliveryImage : "/img/icons/Delivery.png",
-deliveryImageWhite : "/img/icons/Delivery_white.png",
-takeaWay : "Takeaway",
-takeaWayImage : "/img/icons/Takeaway.png",
-takeaWayImageWhite : "/img/icons/Takeaway_white.png",
-dineIn : "Dine in",
-dineInImage : "/img/icons/dineIn.png",
-dineInImageWhite : "/img/icons/dineIn_white.png",
-
-/*  Products Module Languages  */
- no_products_found:"No Products found ",
- 
- /*  Cart  Module Languages  */
- add_to_cart:"ADD TO CART",
- no_cart_items:"No items found in the cart",
- availability_disabled:"Other availabilities currently disabled by administrator",
- select_all_modofier:"Please select all modifiers",
- modifier_missing:"product combination is wrong. Please check your combination",
-
- 
- /* checkout page */
- choose_payment_mode : "Please choose any one payment method",
- user_info_missing : "Some User basic information missing. Please update your profile and try again",
- delivery_info_missing : "Please choose a delivery date and time.",
- 
- /* delvery date module */
- choose_delvery_date :"Choose delivery date",
- choose_delvery_date_error :"Please choose a delivery date and time.",
  
  /*all page meta tags */
  site_title: 'ECCS',
