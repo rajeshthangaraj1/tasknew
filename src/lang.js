@@ -13,9 +13,9 @@ module.exports = {
 	
  
  /*all page meta tags */
- site_title: 'ECCS',
- site_title_with_separator: ' | ECCS ',
- home_meta_title:"Welcome to ECCS ",
+ site_title: 'Rajesh Thangaraj',
+ site_title_with_separator: ' | Rajesh Thangaraj ',
+ home_meta_title:"Rajesh Thangaraj ",
  prodcuts_meta_title:"Products Details",
  scan_qr_code_page:"Book a Table",
  signin_meta_title:"User Signin",
