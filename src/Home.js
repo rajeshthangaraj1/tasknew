@@ -124,8 +124,8 @@ class Home extends React.Component {
           <div className="services-block">
 
             <i className="ion-ios-browsers-outline"></i>
-            <span>UI/UX DESIGN</span>
-            <p className="separator">To an English person, it will seem like simplified English,told me what </p>
+            <span>WEB DEVELOPER</span>
+            <p className="separator">Manages website content and web hosting setup. For example creating /maintaining web pages,creating /managing databases, IIS, Apache/Other setup,source version control etc. </p>
 
           </div>
 
@@ -205,117 +205,117 @@ class Home extends React.Component {
           <div className="portfolio-container">
 
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all branding uikits food_commerce">
-              <a className="popup-img" href="images/portfolio/georges.png" >
+              <a className="popup-img" href="images/portfolio/georges.png" title="Georges" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/georges.png" alt="https://www.georges.com.sg/" />
               </a>
             </div>
 
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits food_commerce">
-              <a className="popup-img" href="images/portfolio/thebananaleafapolo.png">
+              <a className="popup-img" href="images/portfolio/thebananaleafapolo.png" title="Thebananaleafapolo" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/thebananaleafapolo.png"  alt="img"/>
               </a>
             </div>
 
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all branding webdesig food_commerce">
-              <a className="popup-img" href="images/portfolio/srisun.png">
+              <a className="popup-img" href="images/portfolio/srisun.png" title="Srisun" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/srisun.png" alt="img"/>
               </a>
             </div>
 
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups webdesign food_commerce">
-              <a className="popup-img" href="images/portfolio/aadhyaorganics.png">
+              <a className="popup-img" href="images/portfolio/aadhyaorganics.png" title="Aadhyaorganics" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/aadhyaorganics.png" alt="img"/>
               </a>
             </div>
 
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all branding uikits e_commerce">
-              <a className="popup-img" href="images/portfolio/cuscaden.png">
+              <a className="popup-img" href="images/portfolio/cuscaden.png" title="Cuscaden" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/cuscaden.png" alt="img"/>
               </a>
             </div>
 
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits react">
-              <a className="popup-img" href="images/portfolio/eccsae.png">
+              <a className="popup-img" href="images/portfolio/eccsae.png" title="Eccsae" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/eccsae.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits digital_bussiness">
-              <a className="popup-img" href="images/portfolio/carbuys.png">
+              <a className="popup-img" href="images/portfolio/carbuys.png" title="Carbuys" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/carbuys.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits cms">
-              <a className="popup-img" href="images/portfolio/easysmart.png">
+              <a className="popup-img" href="images/portfolio/easysmart.png" title="Easysmart" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/easysmart.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits erp">
-              <a className="popup-img" href="images/portfolio/erp.png">
+              <a className="popup-img" href="images/portfolio/erp.png" title="ERP" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/erp.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits cms">
-              <a className="popup-img" href="images/portfolio/formula5.png">
+              <a className="popup-img" href="images/portfolio/formula5.png" title="Formula5" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/formula5.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits e_commerce">
-              <a className="popup-img" href="images/portfolio/freelor.png">
+              <a className="popup-img" href="images/portfolio/freelor.png" title="Freelor" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/freelor.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits digital_bussiness">
-              <a className="popup-img" href="images/portfolio/geniehut.png">
+              <a className="popup-img" href="images/portfolio/geniehut.png" title="Geniehut" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/geniehut.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits e_commerce">
-              <a className="popup-img" href="images/portfolio/goodayshop.png">
+              <a className="popup-img" href="images/portfolio/goodayshop.png" title="Goodayshop" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/goodayshop.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits property">
-              <a className="popup-img" href="images/portfolio/greenhomegroup.png">
+              <a className="popup-img" href="images/portfolio/greenhomegroup.png" title="Georges" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/greenhomegroup.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits property">
-              <a className="popup-img" href="images/portfolio/gulfstarae.png">
+              <a className="popup-img" href="images/portfolio/gulfstarae.png" title="Gulfstarae" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/gulfstarae.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits cms">
-              <a className="popup-img" href="images/portfolio/hvlpestservices.png">
+              <a className="popup-img" href="images/portfolio/hvlpestservices.png" title="Hvlpestservices" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/hvlpestservices.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits cms">
-              <a className="popup-img" href="images/portfolio/krishnapriyafoundation.png">
+              <a className="popup-img" href="images/portfolio/krishnapriyafoundation.png" title="Krishnapriyafoundation" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/krishnapriyafoundation.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits cms">
-              <a className="popup-img" href="images/portfolio/mefitness.png">
+              <a className="popup-img" href="images/portfolio/mefitness.png" title="Mefitness" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/mefitness.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits digital_bussiness">
-              <a className="popup-img" href="images/portfolio/mekkahaj.png">
+              <a className="popup-img" href="images/portfolio/mekkahaj.png" title="Mekkahaj" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/mekkahaj.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits food_commerce">
-              <a className="popup-img" href="images/portfolio/portopantry.png">
+              <a className="popup-img" href="images/portfolio/portopantry.png" title="Portopantry" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/portopantry.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits e_commerce">
-              <a className="popup-img" href="images/portfolio/theroyalcards.png">
+              <a className="popup-img" href="images/portfolio/theroyalcards.png" title="Theroyalcards" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/theroyalcards.png" alt="img"/>
               </a>
             </div>
             <div className="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits cms">
-              <a className="popup-img" href="images/portfolio/zenithfood.png">
+              <a className="popup-img" href="images/portfolio/zenithfood.png" title="Zenithfood" data-id="https://www.georges.com.sg/" >
                 <img src="images/portfolio/zenithfood.png" alt="img"/>
               </a>
             </div>
