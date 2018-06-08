@@ -79,12 +79,10 @@ class Home extends React.Component {
         <p>Web Developer, Web Designer, Freelancer</p>
 
         <ul className="list-unstyled list-social">
-          <li><a href="#"><i className="ion-social-facebook"></i></a></li>
-          <li><a href="#"><i className="ion-social-twitter"></i></a></li>
-          <li><a href="#"><i className="ion-social-instagram"></i></a></li>
-          <li><a href="#"><i className="ion-social-googleplus"></i></a></li>
-          <li><a href="#"><i className="ion-social-tumblr"></i></a></li>
-          <li><a href="#"><i className="ion-social-dribbble"></i></a></li>
+          <li><a href="https://www.facebook.com/tiger.rajesh.7"><i className="ion-social-facebook"></i></a></li>
+          <li><a href="https://www.instagram.com/rajesh.thangaraj.1892/"><i className="ion-social-instagram"></i></a></li>
+          <li><a href="https://plus.google.com/u/0/112349601539582238611"><i className="ion-social-googleplus"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/rajesh-thangaraj-014021142/"><i className="ion-social-linkedin"></i></a></li>
         </ul>
       </div>
     </div>
@@ -126,6 +124,14 @@ class Home extends React.Component {
             <i className="ion-ios-browsers-outline"></i>
             <span>WEB DEVELOPER</span>
             <p className="separator">Manages website content and web hosting setup. For example creating /maintaining web pages,creating /managing databases, IIS, Apache/Other setup,source version control etc. </p>
+
+          </div>
+          
+           <div className="services-block">
+
+            <i className="ion-ios-browsers-outline"></i>
+            <span>WEB DESIGN</span>
+            <p className="separator">Encompasses many different skills and disciplines in the production and maintenance of websites. It describes the design process related to the front-end design of a website including writing mark up and expected to have an awareness of usability and up to date with web accessibility guideliness. </p>
 
           </div>
 
@@ -371,7 +377,7 @@ WordPress has a web template system using a template processor. Its architecture
               <ul className="contact-details">
                 <li><span>APT#6,Block#2,Villa# 11,</span></li>
                 <li><span>Mohammed Bin Zayed City,Abudhabi,UAE</span></li>
-                <li><span>+971 545771757</span></li>
+                <li><span>+971 563446123</span></li>
                 <li><span>rajeshthangaraj1@gmail.com</span></li>
               </ul>
 
