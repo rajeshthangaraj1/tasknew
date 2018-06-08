@@ -436,12 +436,10 @@ WordPress has a web template system using a template processor. Its architecture
       <div className="socials-media text-center">
 
         <ul className="list-unstyled">
-          <li><a href="#"><i className="ion-social-facebook"></i></a></li>
-          <li><a href="#"><i className="ion-social-twitter"></i></a></li>
-          <li><a href="#"><i className="ion-social-instagram"></i></a></li>
-          <li><a href="#"><i className="ion-social-googleplus"></i></a></li>
-          <li><a href="#"><i className="ion-social-tumblr"></i></a></li>
-          <li><a href="#"><i className="ion-social-dribbble"></i></a></li>
+          <li><a href="https://www.facebook.com/tiger.rajesh.7"><i className="ion-social-facebook"></i></a></li>
+          <li><a href="https://www.instagram.com/rajesh.thangaraj.1892/"><i className="ion-social-instagram"></i></a></li>
+          <li><a href="https://plus.google.com/u/0/112349601539582238611"><i className="ion-social-googleplus"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/rajesh-thangaraj-014021142/"><i className="ion-social-linkedin"></i></a></li>
         </ul>
 
       </div>
