@@ -83,6 +83,7 @@ class Home extends React.Component {
           <li><a href="https://www.instagram.com/rajesh.thangaraj.1892/"><i className="ion-social-instagram"></i></a></li>
           <li><a href="https://plus.google.com/u/0/112349601539582238611"><i className="ion-social-googleplus"></i></a></li>
           <li><a href="https://www.linkedin.com/in/rajesh-thangaraj-014021142/"><i className="ion-social-linkedin"></i></a></li>
+          <li><a href="https://twitter.com/rajeshthangara5"><i class="ion-social-twitter"></i></a></li>
         </ul>
       </div>
     </div>
@@ -440,6 +441,7 @@ WordPress has a web template system using a template processor. Its architecture
           <li><a href="https://www.instagram.com/rajesh.thangaraj.1892/"><i className="ion-social-instagram"></i></a></li>
           <li><a href="https://plus.google.com/u/0/112349601539582238611"><i className="ion-social-googleplus"></i></a></li>
           <li><a href="https://www.linkedin.com/in/rajesh-thangaraj-014021142/"><i className="ion-social-linkedin"></i></a></li>
+          <li><a href="https://twitter.com/rajeshthangara5"><i class="ion-social-twitter"></i></a></li>
         </ul>
 
       </div>
